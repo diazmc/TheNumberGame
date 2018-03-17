@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        {% block styles %}
+      
+        <link rel="stylesheet" href="{{url_for('static', filename="style.css")}}">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+       
+        
+        {% endblock %}
+
+        <!-- {% block scripts %}
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        {% endblock %} -->
+
+        <title>The Great Number Game</title>
+    </head>
+    <body>
+
+        <div class="title">
+            <h1><b>Welcome to The Great Number Game</b></h1>
+        </div>
+        <p><i>I am thinking of a number betweeen 1 and 4</i></p>
+        <p><i>Take a guess!</i></p>
+
+
+        <div class="container">
+            <form action="/number" method="POST">
+
+                <input type="number" name="number" placeholder="Enter a number">
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </form>
+        </div>
+        <br><br>
+
+        <!-- <a href="/reset" style="text-decoration:none">
+            <input type="button" value="Reset">
+        </a> -->
+
+        <br><br>
+
+        {{randomNumber}}
+
+        <br><br>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages%}
+                {% for message in messages %}
+                    {{message}}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% if session["number"] == session["randomNumber"] %}
+        <div class="green">
+            <a href="reset">Play Again!</a>
+        </div>
+        {% endif %}
+
+
+
+    </body>
+</html>

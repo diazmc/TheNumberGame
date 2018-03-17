@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+body {
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    background-color: #373637;
+    color: #ECECEC;
+    font-size: 25px;
+}
+.title {
+    background-color: #452E42;
+    width: 100%;
+    font-size: 30px;
+}
+
+.container {
+    border: 1px solid #817D80;
+    border-radius: 5px;
+    padding: 20px 5px 0px;
+    width: 20%;
+    margin: auto;
+}
+.green {
+    background-color: #00FFC0;
+}
+
+input[type="number"], input[type=number]::-webkit-inner-spin-button {
+    padding: 8px;
+    -webkit-appearance: none;
+    font-size: 12px;
+}
+
+
+input[type="submit"] {
+    background-color: #BA59A8;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+}
